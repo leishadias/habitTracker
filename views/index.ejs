@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo-List</title>
+    <script src="https://kit.fontawesome.com/87f063257c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="main">
+    <heading>
+        <h1>My Todo List App</h1>
+    </heading>
+    <section>
+        <form action="/additem" method="post" id="inputform">
+            <!--adding all the form elements into the table for better allignment-->
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <!--Decription: compulsory input-->
+                        <label for="description-input">DESCRIPTION</label>
+                        <input id="description-input" type="text" name="inputdesc" placeholder="What do you need to do?" class="input-border" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <!--category: default value blank-->
+                        <label for="category-input">CATEGORY</label>
+                        <select name="inputcategory" id="category-input" class="input-border">
+                            <option value="" disabled selected>Choose a category</option>
+                            <option value="personal">Personal</option>
+                            <option value="work">Work</option>
+                            <option value="school">School</option>
+                            <option value="cleaning">Cleaning</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </td>
+                    <td>
+                        <!--due date. if not specified then no deadline-->
+                        <label for="date-input">DUE DATE</label>
+                        <input id="date-input" type="date" name="inputdate" class="input-border" placeholder="DD-MM-YYYY">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </section>
+    <!--submission button and delete button
+        submit button - will add new row
+        delete button - deletes all the completed/checked tasks
+    -->
+    <section id="btn-container">
+        <button type="submit" form="inputform"><i class="fa-solid fa-plus"></i> ADD TASK</button>
+        <button type="submit" id="deletebtn"><i class ="fa-solid fa-trash"></i> DELETE TASKS</button>
+    </section>
+    <!--list items-->
+    <main>
+        <ul>
+            <% for(let i=0; i<listitems.length; i++){ %>
+                <li>
+                    <hr>
+                    <!--check box: on click, db is updated and page is reloaded-->
+                    <input type="checkbox" id="<%= i %>" name="item<%= i %>" value="<%= listitems[i]._id %>" <% if(listitems[i].completed==true){ %> checked <% } %> class="checkbox">
+                    <label for="<%= i %>"> 
+                        <!--description of task-->
+                        <p class="desc <% if(listitems[i].completed==true){ %> completed-strike <% } %>"><%= listitems[i].description %></p>
+                        <!--labels set in the right: category and deadline completed-->
+                        <div class="setright">
+                            <!--only if category is specified, button to be shown-->
+                            <% if(listitems[i].category != ''){ %>
+                                <button class="categ"><%= listitems[i].category %></button>
+                            <% } %>
+                            <br>
+                            <!--if date crossed then to be shown. initially hidden-->
+                            <button class="categ deadlinebtn hide">Deadline crossed</button>
+                        </div> 
+                        <!--due date. if specified then show date or else message that no due date-->
+                        <% if(listitems[i].date != null && listitems[i].date != ""){ %>
+                            <p class="date <% if(listitems[i].completed==true){ %> completed-strike <% } %>"><i class="fa-solid fa-calendar-days"> </i><span> <%= listitems[i].date %></span></p>
+                        <% }else{ %>
+                            <p class="date <% if(listitems[i].completed==true){ %> completed-strike <% } %>"><i class="fa-solid fa-calendar-days"> </i><span> No Deadline</span></p>
+                        <% } %> 
+                    </label><br>
+                    
+                </li>
+            <% } %>
+        </ul>
+    </main>
+</div>
+</body>
+<script type="text/javascript" src="javascript/script.js"></script>
+</html>

@@ -1,0 +1,36 @@
+<!--Modal used to search users-->
+<div class="modal fade" id="searchlist"  tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="modalLabel">Add a new habit!</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="task" placeholder="Habit">
+                <label for="task">Habit</label>
+            </div>
+            <div class="form-floating mb-3">
+                <select class="form-select" aria-label="Default select example" id="recurrence">
+                    <option selected>Open this select menu</option>
+                    <option value="Daily">Daily</option>
+                    <option value="Monthly">Monthly</option>
+                    <option value="Yearly">Yearly</option>
+                </select>
+                <label for="recurrence">Recurrence</label>
+            </div>
+            <div class="form-floating mb-3">
+                <select class="form-select" aria-label="Default select example" id="type">
+                    <option selected><i class="fa-solid fa-bars-progress"></i> Other</option>
+                    <option value="work"><i class="fa-solid fa-briefcase"></i> Work</option>
+                    <option value="school"><i class="fa-solid fa-book"></i> School</option>
+                    <option value="hobby"><i class="fa-solid fa-music"></i> Hobby</option>
+                    <option value="workout"><i class="fa-solid fa-dumbbell"></i> Workout</option>
+                </select>
+                <label for="type">Type</label>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
