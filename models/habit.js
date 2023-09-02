@@ -1,15 +1,22 @@
 const mongoose = require('mongoose');
 
 const habitSchema = new mongoose.Schema({
-    name:{
+    habit:{
         type:String,
         required:true
+    },
+    desc: {
+        type: String
+    },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     },
     category:{
         type:String
     },
-    date:{
-        type:String
+    streak:{
+        type: Number
     },
     status: [{
         date: String,

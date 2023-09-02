@@ -1,0 +1,43 @@
+<div class="collapse" id="weekview<%= habit._id %>">
+    <div class="container weekly-view">
+        <!-- habit details shows activity of past 7 days-->
+        <div class="habit-container week-container">
+            <% for(let date of weeklyDates) { %>
+                <div class="day-container">
+                    <!-- creation date -->
+                    <div class="calender">
+                        <p><%= date %></p>
+                    </div>
+                    <% 
+                        let found;
+                        let status;
+                        habit.status.find((item) => {
+                            if(item.date === date)
+                            {
+                                found = true;
+                                status = item.complete;
+                            }
+                        });
+                        date=date.replace(" ", "+");
+                    %>
+                    <!-- complete status -->
+                    <div >
+                        <a href="/users/habit/toggle-status/?id=<%= habit._id%>&date=<%=date%>" class="mark-status" data-parentId="<%=habit._id%>">
+                            <% if(found && status=='y') { %>
+                                <i class="fa-solid fa-check" style="color: #35b724;" data-status="yes"></i>
+                            <% } else if(found && status=='n') { %>
+                                <i class="fa-solid fa-xmark" style="color: #d41111;" data-status="no"></i>
+                            <% } else { %>
+                                <i class="fa-solid fa-circle"  data-status="none"></i>
+                            <% } %>
+                        </a>
+                    </div>
+                </div>
+            <% } %>
+            <!-- close week view -->
+            <a data-bs-toggle="collapse" data-bs-target="#weekview<%=habit._id%>" aria-expanded="false" aria-controls="weekview<%=habit._id%>" class="weekly-close">
+                <i class="fa-solid fa-xmark"></i>
+            </a>
+        </div>
+    </div>
+</div>

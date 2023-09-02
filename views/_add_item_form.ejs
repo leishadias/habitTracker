@@ -1,0 +1,43 @@
+<!--Modal used to add new habits-->
+<div class="modal fade" id="addItemForm"  tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="modalLabel">Add a new habit!</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        
+        <div class="modal-body">
+            <form action="/users/habit/create-habit" method="post" id="inputform">
+                <!--habit title-->
+                <label for="task" class="form-label">Enter Habit</label>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="task" placeholder="Ex: Reading" name="habit" required>
+                    <label for="task">Habit</label>
+                </div>
+                <!--habit description-->
+                <label for="description" class="form-label">Enter Description</label>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="description" placeholder="Ex: Reading" name="desc">
+                    <label for="description">Description</label>
+                </div>
+                <!--habit type-->
+                <label for="type" class="form-label">Enter the type</label>
+                <div class="form-floating mb-3">
+                    <select class="form-select" aria-label="Default select example" id="type" name="category">
+                        <option selected value="other">&#128512; Other</option>
+                        <option value="work">&#128188; Work</option>
+                        <option value="school">&#128214; School</option>
+                        <option value="hobby">&#128378; Hobby</option>
+                        <option value="workout">&#127939; Workout</option>
+                        <option value="play">&#9977; Play </option>
+                        <option value="eat">&#127829; Eat </option>
+                    </select>
+                    <label for="type">Type</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Add item</button>
+            </form>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="modal fade" id="myEditForm_<%= habit._id %>" tabindex="-1" aria-labelledby="myEditForm_<%= habit._id %>Label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="myEditForm_<%= habit._id %>Label">Edit Habit</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="users/habit/edit-habit/?id=<%= habit._id%>&user=<%=locals.user%>" id="editHabit" method="POST">
+                    <!--edit title-->
+                    <div class="mb-3">
+                        <label class="form-label">Habit</label>
+                        <input type="text" class="form-control" name="title" value="<%= habit.habit %>" required>
+                    </div>
+                    <!--edit description-->
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <input type="text" class="form-control" name="desc" value="<%= habit.desc %>">
+                    </div>
+                    <button type="submit" id="save-btn" class="btn btn-primary">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

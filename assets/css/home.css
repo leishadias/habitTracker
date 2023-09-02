@@ -1,0 +1,171 @@
+body {
+  background-image: url(../images/bg.webp);
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+  background-attachment: fixed;
+  font-family: "JetBrains Mono",monospace;
+}
+
+
+/* ---------- styles on welcome page ---------- */
+.welcome-title {
+  color: rgb(16, 133, 151);
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+  padding: 50px;
+}
+
+.welcome-button {
+  width: 200px;
+  height: 50px;
+  background-color: rgb(16, 133, 151);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  border: none;
+  margin-left: 40%;
+  margin-top: 20px;
+  cursor: pointer;
+  box-shadow: 0 0.5em 0.5em -0.4em  rgb(16, 133, 151);
+}
+
+.welcome-button:hover,
+.welcome-button:focus {
+  background-color: rgb(17, 119, 135);
+  color: #fff;
+}
+  
+/* ---------- styles when there are no habits ---------- */
+#noHabitText{
+  color:  rgb(16, 133, 151);
+  text-align: center;
+  font-size: 30px;
+  margin-top: 40px;
+}
+
+/* Button used to open the form */
+#open-btn-fixed {
+  background-color: rgb(16, 133, 151);
+  color: white;
+  font-size: 18px;
+  padding: 12px 10px;
+  border: none;
+  cursor: pointer;
+  top: 50%;
+  left: 37%;
+  opacity: 0.8;
+  position: fixed;
+  width: 250px;
+  box-shadow: 0 0.5em 0.5em -0.4em rgb(16, 133, 151);
+}
+
+#open-btn-fixed:hover,
+#open-btn-fixed:focus {
+  background-color: rgb(17, 119, 135);
+  color: #fff;
+}
+
+/* ---------- styles when habits are added ---------- */
+.container {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.habit-container {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.85);
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.habit-title {
+  margin-top: 15px;
+  text-transform: capitalize;
+}
+
+.day-container {  
+  margin-right: 5px;
+  border-right: 1px solid lightgrey;
+}
+
+.calender {
+  display: flex;
+}
+
+.calender p {
+  margin-right: 30px;
+}
+
+.mark-status {
+  margin-left: 18px;
+  font-size: 20px;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.281);
+}
+
+.mark-status i:hover{
+  transform: scale(1.15);
+}
+
+.menu {
+  margin: auto;
+  margin-top: inherit;
+  margin-right: initial;
+}
+
+.menu a{
+  cursor: pointer;
+}
+
+.menu i {
+  margin-right: 10px;
+}
+
+.menu i:hover {
+  transform: scale(1.15);
+}
+
+.habit-desc {
+  font-size: 18px;
+  flex-basis: 80%;
+  padding-left: 25px;
+}
+
+.mark-status-daily {
+  color: #1a419f;;
+  font-size: 28px;
+  margin-left: 18px;
+}
+
+#habitContainer{
+  padding-bottom: 30px;
+}
+
+.form-select{
+  -webkit-appearance: none !important;
+  appearance: none;
+}
+
+.week-container{
+  padding: 10px;
+  width: auto;
+}
+
+.weekly-close{
+  margin-bottom: auto;
+  cursor: pointer;
+}
+
+#add-habit-btn{
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+#add-habit-btn:hover{
+  transform: scale(1.15);
+}

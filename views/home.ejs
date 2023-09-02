@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="/css/home.css">
+
+<div>
+    <!----------- if user is not logged in ----------->
+    <% if(!locals.user) { %>
+        <div class="welcome-title">
+            Track your habits now!<br>
+            We manage what we monitor.
+        </div>
+        <a class="btn welcome-button" href="/users/sign-in" role="button">Start tracking</a>
+    <% }
+
+    <!----------- if no habits are added ----------->
+    else if(locals.user && locals.habits.length==0) { %>
+        <div id="noHabitText">We are what we repeatedly do.
+               <br> Add your daily habits now and start tracking!</div>
+        <button id="open-btn-fixed" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addItemForm">
+            Add Habit
+        </button>
+    <% }
+    
+    <!------------ show habits ------------>
+    else { %>
+        <div id="habitContainer">
+            <div>
+                <%- include('_habits') -%>
+            </div>
+        </div>
+    <% } %>
+</div>
+
+<script type="text/javascript" src="/javascript/home.js"></script>

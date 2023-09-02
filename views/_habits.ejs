@@ -1,0 +1,80 @@
+<% for(habit of habits) {%>   
+    <div class="container">
+        <!-- habit details-->
+        <div class="habit-container">
+            <!-- start date -->
+            <div class="mark-status-daily">
+                <% 
+                    let months = ["","Jan", "Feb", "March", "Apr", "May", "June", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+                    let startDate = habit.status[0].date;
+                    let start = months[startDate.trim(" ")[0]] +" " +startDate.substring(2);
+                %>
+                <%=start%>
+            </div>
+
+            <!-- habit desciption -->
+            <div class="habit-desc">
+                <!-- habit title -->
+                <div class="habit-title"> 
+                    <!--habit type-->
+                    <h2><%= habit.habit %>
+                        <% if(habit.category==='other') { %>
+                            &#128512;
+                        <% } else if(habit.category==='work') { %>
+                            &#128188;
+                        <% } else if(habit.category==='school') { %>
+                            &#128214;
+                        <% } else if(habit.category==='hobby') { %>
+                            &#128378;
+                        <% } else if(habit.category==='workout') { %>
+                            &#127939;
+                        <% } else if(habit.category==='play') { %>
+                            &#9977;
+                        <% } else if(habit.category==='eat') { %>
+                            &#127829;
+                        <% } %>
+                    </h2>
+                </div>
+                <!--habit description-->
+                <% if(!habit.desc) { %>
+                    <p>- No description -</p>
+                <% } else { %>
+                    <p><%= habit.desc %></p> 
+                <% } %>
+                <!-- number of days done -->
+                <div>
+                    <p id="streak<%=habit._id%>" data-val="<%= habit.streak %>">&#128293; <span><%= habit.streak %></span></p> 
+                </div>
+            </div>
+
+            <!-- options : edit, delete, show week's progress -->
+            <div class="menu">  
+                <div class="dropdown">
+                    <div type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                    <ul class="dropdown-menu">
+                      <li class="p-2">
+                        <a class="clickIt" id="<%= habit._id%>" style="text-decoration: none;" data-bs-toggle="modal" data-bs-target="#myEditForm_<%= habit._id %>">
+                            <i class="fa-solid fa-pencil fa-lg" style="color: rgb(241, 121, 109);"></i> Edit
+                        </a>
+                      </li>
+                      <li class="p-2">
+                        <a href="/users/habit/delete-habit/?id=<%=habit._id%>" style="text-decoration: none;">
+                            <i class="fa-regular fa-trash-can fa-lg" style="color: rgb(241, 121, 109);"></i> Delete
+                        </a>
+                      </li>
+                      <li  class="p-2">
+                        <a data-bs-toggle="collapse" href="#weekview<%=habit._id%>"  style="text-decoration: none;" aria-expanded="false" aria-controls="weekview<%=habit._id%>">
+                            <i class="fa-solid fa-calendar-week" style="color: rgb(241, 121, 109);"></i>Show details
+                        </a>
+                      </li>
+                    </ul>
+                </div>
+                <!-- Edit habit Modal -->
+                <%- include('_edit_habit') -%>
+            </div>
+        </div>
+        <%- include('_week_view') -%>
+    </div>
+<% } %>

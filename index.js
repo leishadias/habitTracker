@@ -6,11 +6,16 @@ const port = 8000;
 //importing express-ejs-layout
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
+//used for session cookie
+const session = require('express-session');
+//passport setup
+const passport = require('passport');
+const passportLocal = require('./config/passport-local-strategy');
 //configuring the database
 const MongoStore = require('connect-mongo');
 
 const flash= require('connect-flash');
-// const customMware = require('./config/middleware');------------
+const customMware = require('./config/middleware');
 
 //middleware for form parser
 app.use(express.urlencoded());
@@ -20,13 +25,34 @@ app.use(cookieParser());
 app.use(express.static('./assets'));
 
 app.use(expressLayouts);
-//extract style and scripts from sub pages into the layout----------------
-// app.set('layout extractStyles', true);---------------
-// app.set('layout extractScripts', true);-------------------
-
+//extract style and scripts from sub pages into the layout
+app.set('layout extractStyles', true);
+app.set('layout extractScripts', true);
 //set up the view engine
 app.set('view engine', 'ejs');
 app.set('views', './views');
+
+//middleware for passport
+app.use(
+    session({
+      name: 'habitTracker',
+      secret: 'bu9BthnFajqZjoYdeXv6v89H7CCPpm5r',
+      saveUninitialized: false,
+      resave: false,
+      cookie: {
+        maxAge: 1000 * 60 * 100,
+      },
+      store: new MongoStore({
+        mongoUrl: 'mongodb://127.0.0.1:27017/habitTracker_dev',
+        mongooseConnection: db,
+        autoRemove: 'disabled',
+      }),
+    })
+);
+  
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(passport.setAuthenticatedUser);
 
 app.use(flash());
 app.use(customMware.setFlash);
