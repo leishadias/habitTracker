@@ -1,0 +1,15 @@
+nav{
+    border: 1px solid white;
+    color: white;
+    background-color: #47779a;
+}
+
+.nav-option{
+    color: white;
+    text-decoration: none;
+    padding-left: 25px;
+}
+
+.nav-option:hover{
+    color: rgb(232, 231, 231);
+}

@@ -1,7 +1,12 @@
 const express = require('express');
+//fetch environment variables
+const env = require('./config/environment');
+const logger=require('morgan');
+// const path=require('path');
 //importing cookie parser
 const cookieParser = require('cookie-parser');
 const app = express();
+// require('./config/view_helpers')(app);
 const port = 8000;
 //importing express-ejs-layout
 const expressLayouts = require('express-ejs-layouts');
@@ -22,8 +27,8 @@ app.use(express.urlencoded());
 //middleware for cookie parser
 app.use(cookieParser());
 //importing the assets folder
-app.use(express.static('./assets'));
-
+app.use(express.static(env.asset_path));
+app.use(logger(env.morgan.mode, env.morgan.options));
 app.use(expressLayouts);
 //extract style and scripts from sub pages into the layout
 app.set('layout extractStyles', true);
@@ -36,14 +41,14 @@ app.set('views', './views');
 app.use(
     session({
       name: 'habitTracker',
-      secret: 'bu9BthnFajqZjoYdeXv6v89H7CCPpm5r',
+      secret: env.session_cookie_key,
       saveUninitialized: false,
       resave: false,
       cookie: {
         maxAge: 1000 * 60 * 100,
       },
       store: new MongoStore({
-        mongoUrl: 'mongodb://127.0.0.1:27017/habitTracker_dev',
+        mongoUrl: `mongodb://127.0.0.1:27017/${env.db}`,
         mongooseConnection: db,
         autoRemove: 'disabled',
       }),
