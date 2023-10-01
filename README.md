@@ -43,13 +43,17 @@ It shows the progress of past one week and the number of days this has been comp
   1. Clone this project
   2. Start by installing npm if you don't have it already.
   3. Navigate to Project Directory.
+  4. Update environment variables as follows:
+     - HT_ASSET_PATH="./assets"
+     - HT_DB="habitTracker_production"
+     - HT_ENVIRONMENT="production"
+     - HT_SESSION_COOKIE_KEY="somekey"
 
 Run the following commands.
    ```` 
         npm install 
         npm start || npm run prod_start
    ````
-
 
 
 ### Features
