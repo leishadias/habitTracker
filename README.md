@@ -91,46 +91,53 @@ Run the following commands.
 
 ### Folder Structure
 
-```
-Employee Review System
+````
+Habit Tracker
+    |----assets
+    |      |----css
+    |      |----images
+    |      |----javascript
+    |             
+    |----config
+    |      |----environment.js
+    |      |----middleware.js
+    |      |----mongoose.js
+    |      |----passport-local-strategy.js
     |
-    |               |--->css
-    |--->assets---->|--->images
-    |               |--->javascript
+    |----controllers
+    |      |----habit_controller.js
+    |      |----home_controller.js
+    |      |----users_controller.js
     |
-    |               |--->environment.js
-    |--->config---->|--->middleware.js
-    |               |--->mongoose.js
-    |               |--->passport-local-strategy.js
+    |----models
+    |      |----habit.js
+    |      |----user.js
     |
-    |                  |-->habit_controller.js
-    |--->controllers-->|-->home_controller.js
-    |                  |-->users_controller.js
+    |----node_modules
     |
-    |--->models---->|-->habit.js
-    |               |-->user.js
+    |----production_logs
     |
-    |-->node_modules
+    |----routes
+    |      |----habit.js
+    |      |----index.js
+    |      |----users.js
     |
-    |-->production_logs
+    |----views
+    |      |----_add_item_form.ejs
+    |      |----_edit_habit.ejs
+    |      |----_habits.ejs
+    |      |----_header.ejs
+    |      |----_week_view.ejs
+    |      |----home.ejs
+    |      |----layout.ejs
+    |      |----user_sign_in.ejs
+    |      |----user_sign_up.ejs
     |
-    |               |-->habit.js
-    |--->routes---->|-->index.js
-    |               |-->users.js
+    |----.gitignore
     |
-    |              |--->_add_item_form.ejs
-    |              |--->_edit_habit.ejs
-    |              |--->_habits.ejs
-    |              |--->_header.ejs
-    |--->views---->|--->_weekly_view.ejs
-    |              |--->home.ejs
-    |              |--->layout.ejs
-    |              |--->user_sign_in.ejs
-    |              |--->user_sign_up.ejs
+    |---- index.js
     |
-    |-->.gitignore
-    |--> index.js
-    |--> package-lock.json
-    |-->package.json
-    
-    ````
+    |---- package-lock.json
+    |
+    |----package.json
+````
