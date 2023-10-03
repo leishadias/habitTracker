@@ -7,7 +7,7 @@
                 <% 
                     let months = ["","Jan", "Feb", "March", "Apr", "May", "June", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
                     let startDate = habit.status[0].date;
-                    let start = months[startDate.trim(" ")[0]] +" " +startDate.substring(2);
+                    let start = months[startDate.split(" ")[0]] +" " +startDate.substring(2);
                 %>
                 <%=start%>
             </div>

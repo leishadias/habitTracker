@@ -59,33 +59,31 @@ Run the following commands.
 ### Features
   
   # Sign-Up
-  
+  <img src="/assets/images/screenshots/signup.png">
 
   # Sign-In
-  
+  <img src="/assets/images/screenshots/signin.png">
 
   # Home Page (Before sign-in)
-  
+  <img src="/assets/images/screenshots/home.png">
   
   # Home Page (On sign-in)
-
+  <img src="/assets/images/screenshots/nohabit.png">
 
   # Habits menu
-  
+  <img src="/assets/images/screenshots/habitmenu.png">
 
   # Habits (daily view)
-  
+  <img src="/assets/images/screenshots/habits.png">
 
   # Habits (weekly view)
-  
+  <img src="/assets/images/screenshots/weekview.png">
 
   # Add new habit
-  
+  <img src="/assets/images/screenshots/addhabit.png">
   
   # Edit habit
-  
-  
-  # Different habit statuses
+  <img src="/assets/images/screenshots/edithabit.png">
   
   
 
