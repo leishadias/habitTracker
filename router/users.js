@@ -13,6 +13,4 @@ router.post('/create-session', passport.authenticate(
     {failureRedirect: '/users/sign-in'}
     ), userController.createSession);
 
-router.use('/habit', require('./habit'));
-
 module.exports = router;

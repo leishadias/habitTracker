@@ -22,7 +22,7 @@
                     %>
                     <!-- complete status -->
                     <div >
-                        <a href="/users/habit/toggle-status/?id=<%= habit._id%>&date=<%=date%>" class="mark-status" data-parentId="<%=habit._id%>">
+                        <a href="/habit/toggle-status/?id=<%= habit._id%>&date=<%=date%>" class="mark-status" data-parentId="<%=habit._id%>">
                             <% if(found && status=='y') { %>
                                 <i class="fa-solid fa-check" style="color: #35b724;" data-status="yes"></i>
                             <% } else if(found && status=='n') { %>
