@@ -4,7 +4,9 @@ Name: Leisha Aloma Dias
 
 Linkedin: www.linkedin.com/in/leisha-dias
 
-Hosted Link: http://18.232.100.131/
+Hosted Link: http://18.232.100.131/          [AWS]
+             http://habittrackerrr.mooo.com	   [freedns.afraid.org]
+
 
 ## Problem statement
 
